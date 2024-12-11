@@ -7,12 +7,12 @@
   </head>
 
   <body>
-    <h1><a href="index.html">WEB</a></h1>
+    <h1><a href="index.html" class="link">WEB</a></h1>
     <div id="grid">
       <ol>
-        <li><a href="1.html">HTML</a></li>
-        <li><a href="2.html">CSS</a></li>
-        <li><a href="3.html">Javascript</a></li>
+        <li><a href="1.html" class="link">HTML</a></li>
+        <li><a href="2.html" class="link">CSS</a></li>
+        <li><a href="3.html" class="link">Javascript</a></li>
       </ol>
       <div id="article">
         <h2>
@@ -20,9 +20,42 @@
             href="https://tc39.es/ecma262/"
             target="_blank"
             title="Javascript 설명서"
+            id="title"
             >Javascript</a
           >
         </h2>
+        <input
+          type="button"
+          value="night"
+          onclick="
+        document.querySelector('body').style.backgroundColor = 'black';
+        document.querySelector('body').style.color = 'white';"
+        />
+        <input
+          type="button"
+          value="day"
+          onclick="
+          document.querySelector('body').style.backgroundColor = 'white';
+          document.querySelector('body').style.color = 'black'; "
+        />
+        <input
+          id="night_day"
+          type="button"
+          value="night"
+          onclick="
+          if(document.querySelector('#night_day').value === 'night'){
+            document.querySelector('body').style.backgroundColor = 'black';
+            document.querySelector('body').style.color = 'white';
+            document.querySelector('#night_day').value = 'day'
+
+            
+          } else {
+            document.querySelector('body').style.backgroundColor = 'white';
+            document.querySelector('body').style.color = 'black';
+            document.querySelector('#night_day').value = 'night'
+          }"
+        />
+        <p>강덩둔 뱌보~~~~~~</p>
       </div>
     </div>
   </body>
