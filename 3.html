@@ -43,19 +43,40 @@
           type="button"
           value="night"
           onclick="
+          const target = document.querySelector('body');
           if(document.querySelector('#night_day').value === 'night'){
-            document.querySelector('body').style.backgroundColor = 'black';
-            document.querySelector('body').style.color = 'white';
+            target.style.backgroundColor = 'black';
+            target.style.color = 'white';
             document.querySelector('#night_day').value = 'day'
 
             
           } else {
-            document.querySelector('body').style.backgroundColor = 'white';
-            document.querySelector('body').style.color = 'black';
+            target.style.backgroundColor = 'white';
+            target.style.color = 'black';
             document.querySelector('#night_day').value = 'night'
           }"
         />
-        <p>강덩둔 뱌보~~~~~~</p>
+        <input
+          type="button"
+          value="night"
+          onclick="
+        if(this.value === 'night'){
+          document.querySelector('body').style.backgroundColor = 'black';
+          document.querySelector('body').style.color = 'white';
+          this.value = 'day'
+
+          
+        } else {
+          document.querySelector('body').style.backgroundColor = 'white';
+          document.querySelector('body').style.color = 'black';
+         this.value = 'night'
+        }"
+        />
+
+        <p>
+          지금 코드에서 a태그 부분과 h태그 부분의 색상이 바뀌질 않는 이유는<br />
+          style.css에서 명시적으로 스타일을 설정했기 때문임
+        </p>
       </div>
     </div>
   </body>
