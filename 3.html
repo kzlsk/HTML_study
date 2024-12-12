@@ -4,6 +4,7 @@
     <title>WEB3 - Javascript</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="style.css" />
+    <script src="colors.js"></script>
   </head>
 
   <body>
@@ -24,58 +25,181 @@
             >Javascript</a
           >
         </h2>
+        
         <input
           type="button"
           value="night"
-          onclick="
-        document.querySelector('body').style.backgroundColor = 'black';
-        document.querySelector('body').style.color = 'white';"
-        />
-        <input
-          type="button"
-          value="day"
-          onclick="
-          document.querySelector('body').style.backgroundColor = 'white';
-          document.querySelector('body').style.color = 'black'; "
-        />
-        <input
-          id="night_day"
-          type="button"
-          value="night"
-          onclick="
-          const target = document.querySelector('body');
-          if(document.querySelector('#night_day').value === 'night'){
-            target.style.backgroundColor = 'black';
-            target.style.color = 'white';
-            document.querySelector('#night_day').value = 'day'
-
-            
-          } else {
-            target.style.backgroundColor = 'white';
-            target.style.color = 'black';
-            document.querySelector('#night_day').value = 'night'
-          }"
-        />
-        <input
-          type="button"
-          value="night"
-          onclick="
-        if(this.value === 'night'){
-          document.querySelector('body').style.backgroundColor = 'black';
-          document.querySelector('body').style.color = 'white';
-          this.value = 'day'
-
-          
-        } else {
-          document.querySelector('body').style.backgroundColor = 'white';
-          document.querySelector('body').style.color = 'black';
-         this.value = 'night'
-        }"
+          onclick="nightDayHandler(this)"
         />
 
         <p>
-          지금 코드에서 a태그 부분과 h태그 부분의 색상이 바뀌질 않는 이유는<br />
-          style.css에서 명시적으로 스타일을 설정했기 때문임
+          <strong>1. 반복문</strong><br />
+          - while(true | false) { 실행할 코드; } 실행할 코드;<br />
+          - while (조건) { 실행할 코드; } 실행할 코드;<br />
+          <br>
+          - ex<br />
+          <pre>
+            let i =0;
+            while(i < 3){
+              document.write('f');
+              document.write('h');
+              i += 1;
+            }
+            document.write('g');
+          </pre>
+        </p>
+
+        <p>
+          <strong>2. 배열에 있는 값을 반복문을 활용해서 가져오기</strong><br>
+          <pre>
+            const arr = ['a', 'b', 'c', 'd'];
+            let i = 0;
+            while (i < 4) {
+              // 조건문에 i < 4 대신 배열.length를 사용하면 배열의 길이가 바뀌어도 로직을 수정할 필요가 없다
+              document.write('< li >'+arr[i]+'< /li >');
+              i += 1;
+            }         
+          </pre>
+        </p>
+
+        <ul>
+          <script>
+            const arr = ['a', 'b', 'c', 'd'];
+            let a = 0;
+            while(a < arr.length) {
+              document.write('<li>' + arr[a] + '</li>');
+              a += 1;
+            }
+          </script>
+        </ul>
+        <br>
+
+        <p>
+          <strong> 3. 함수</strong><br>
+          <pre>
+            function two() {
+              document.write('f');
+              document.write('g');
+            }
+          </pre>
+        </p>
+        <br>
+        <p>
+          <pre>
+            function sum(left, right) {
+              document.write(left + '+' + right + '=' + left+right+'<br>');
+            }
+            sum(2,3);
+            sum(9, 10);
+          </pre>
+          - 해당 코드는 파라미터를 문자열로 처리함<br>
+          - 왜냐하면 + 연산자가 문자열 연결에 사용되기 때문에 파라미터를 문자열로 연결하게 됨<br>
+          - 따라서 결과가 2+3=23 / 9+10=910을 출력하게 됨
+        </p>
+        <script>
+          function sum(left, right) {
+            document.write(left + '+' + right + '=' + left+right+'<br>');
+          }
+          sum(2,3);
+          sum(9, 10);
+        </script>
+
+        <br>
+        <p>
+          <pre>
+            function sum(left, right) {
+              document.write(left + '+' + right + '=' + (left+right)+'<br>');
+            }
+            sum(2,3);
+            sum(9, 10);
+          </pre>
+          - 해당 코드는 위 코드와 달리 파라미터를 숫자로 처리함<br>
+          - 따라서 결과가 2+3=5 / 9+10=19를 출력하게 됨<br>
+          - 출력 시 주의해야 함
+        </p>
+        <script>
+          function sum(left, right) {
+            document.write(left + '+' + right + '=' + (left+right)+'<br>');
+          }
+          sum(2,3);
+          sum(9, 10);
+        </script>
+        <p>
+          <strong>4. 매개변수(parameter)와 인자(argument)</strong><br>
+          - sum(2,3)에서 2와 3은 인자<br>
+          - sum(left, right)에서 left와 right은 매개변수라고 함<br>
+          - 따라서 함수는 인자를 받아서 매개변수에 전달 <br>
+          - 이를 이용하여 함수를 실행한 후 결과를 출력하거나 반환
+        </p>
+
+        <p>
+          <strong>5. 객체</strong><br>
+          - 객체를 쉽게 설명하자면 이름이 있는 정리정돈 상자라고 할 수 있음<br>
+          - 객체에는 배열, 문자열, 숫자, 불리언, 함수 등 다양한 데이터를 담을 수 있음 <br>
+          <pre>
+            // 객체 생성
+            const songs = {
+              "lauv" : "I like me better",
+              "lany" : "Anything 4 u"
+            };
+            // 값 가져오기
+            document.write('lauv : ' + songs.lauv + "< br >");
+            document.write('lany : ' + songs.lany + "< br >");
+            // 추가 방법 1
+            songs.coldplay = "Ink";
+            document.write('coldplay : ' + songs.coldplay + "< br >");
+            // 추가 방법 2
+            songs["monsta x"] = "Middle of the night";
+            document.write('monsta x : ' + songs["monsta x"] + " < br >");
+          </pre>
+          <script>
+            const songs = {
+              "lauv" : "I like me better",
+              "lany" : "Anything 4 u"
+            };
+            document.write('lauv : ' + songs.lauv + "<br>");
+            document.write('lany : ' + songs.lany + "<br>");
+            songs.coldplay = "Ink";
+            document.write('coldplay : ' + songs.coldplay + "<br>");
+            songs["monsta x"] = "Middle of the night";
+            document.write('monsta x : ' + songs["monsta x"] + " <br>");
+          </script>
+          <br>
+          <strong>6. 객체와 반복문</strong><br>
+          <pre>
+            // 속성 명 가져오기(key)
+            for(var key in songs){
+              document.write(key + '< br >');
+            }
+            // key는 lauv, lany 같은 값으로 속성 명에 해당하며 배열에서는 인덱스로 불림
+          </pre>
+          <script>
+            for(var key in songs){
+              document.write(key + '<br>');
+            }
+          </script>
+          <pre>
+            // 속성 값 가져오기(value)
+            for(var key in songs){
+              document.write(songs[key] + '< br >');
+            }
+          </pre>
+          <script>
+            for(var key in songs){
+              document.write(songs[key] + '<br>');
+            }
+          </script>
+          <pre>
+            //속성 명 : 속성 값 형태로 가져오기(key : value)
+            for(var key in songs){
+              document.write(key + ' : ' + songs[key] + '< br >');
+            }
+          </pre>
+          <script>
+            for(var key in songs){
+              document.write(key + ' : ' + songs[key] + '<br>');
+            }
+          </script>
         </p>
       </div>
     </div>
